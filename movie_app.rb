@@ -6,6 +6,7 @@ require_relative 'movie'
 
 get '/' do
   # Just have a nice welcome page
+  erb :home
 end
 
 post '/film' do
