@@ -5,10 +5,11 @@ require 'httparty'
 require_relative 'movie'
 
 get '/' do
-  # Just have a nice welcome page
+ # Just have a nice welcome page
   erb :movie, { :locals => {
   :m => params["name"]
   } }
+  
 end
 
 post '/film' do
@@ -22,4 +23,11 @@ post '/film' do
   # store the film in the database
 
   # Display the movie in the page
+  erb :movie, { :locals => { 
+    :movie_title => film.title,
+    :movie_actors => film.actors,
+    :movie_director => film.director,
+    :movie_year => film.year,
+    :movie_plot => film.plot
+  }}
 end
